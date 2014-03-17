@@ -1,0 +1,42 @@
+<tabset ng-controller="type_edit">
+   <tab>
+     <tab-heading>
+       General
+     </tab-heading>
+     <br>
+     <form class="form-horizontal" role="form" style="padding:5px">
+	    <div class="form-group">
+	   <label for="projectName" class="col-sm-2 control-label">Name</label>
+	   <div class="col-sm-10">
+	     <input class="form-control" id="projectName" placeholder="Name" ng-model="editData.name"></input>
+	   </div>
+	 </div>
+	 <div class="form-group">
+	   <label for="projectDescription" class="col-sm-2 control-label">Description</label>
+	   <div class="col-sm-10">
+	     <textarea id="projectDescription" class="form-control" rows="3" placeholder="Description" ng-model="editData.description"></textarea>
+	   </div>
+	 </div>
+	 </form>
+   </tab>
+   <tab>
+     <tab-heading>
+       Fields
+     </tab-heading>
+     <br>
+     <div style="width:30%;float:left;padding-left:10px">
+     	 <ul ui-sortable="sortableOptions" ng-model="editData.fields" class="sortable-container">
+	      <li ng-repeat="item in editData.fields" class="sortable-item">
+	        {{item.text}}
+	      </li>
+	    </ul>
+     </div>
+     <div style="width:70%;float:right;padding-right:10px">
+     	 <ul class="list logList">
+		      <li ng-repeat="entry in sortingLog" class="logItem">
+		        {{entry}}
+		      </li>
+		    </ul>
+     </div>
+   </tab>
+ </tabset>

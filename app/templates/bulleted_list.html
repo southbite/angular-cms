@@ -1,0 +1,17 @@
+<div class='page-content bulleted-list-page' ng-controller="BulletedListController">
+<div class='bulleted-list-page'>
+<div class='bulleted-content'>
+	<div class='bulleted-content-html' compile-html="selectedContent" >
+	
+	</div>
+</div>
+<div class='bulleted-list'>
+<div class='bulleted-list-blurb'><h1 compile-html="page.header"></h1>
+<p> {{page.content}}
+</p>
+<ul>
+	<li ng-click="selectContent(item)" ng-repeat="item in dataToObjArray(page.bullets)"><i class="{{item.icon}}"></i><a>{{item.caption}}</a></li>
+</ul>
+</div>
+</div>
+</div>

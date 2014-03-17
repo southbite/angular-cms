@@ -1,0 +1,97 @@
+<html style="margin:0px">
+  <head>
+  	<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  	<link rel="stylesheet" href="css/bootstrap.css">
+  	<link rel="stylesheet" href="css/bootstrap-theme.css">
+ 	<link rel="stylesheet" href="css/treeview.css">
+ 	<link rel="stylesheet" href="css/abn_tree.css">
+ 	<link rel="stylesheet" href="css/menu.css">
+ 	<link rel="stylesheet" href="/less-css/cms.css">
+ 	<link rel="stylesheet" href="css/normalize.css">
+  </head>
+  <body ng-controller="BaseController" style="margin:0px;background-image:url('img/cape-town_02.jpg');background-repeat:no-repeat;background-size:100% 100%;" ng-app="cmsApp">
+	<div ng-if="dataInitialized" style="display:{{base_visible}}" class="base-container">
+	  <div style="display:{{flashmessage.display}}" class="alert {{flashmessage.type}} alert-container">{{flashmessage.message}}</div>
+	  <div style="display:{{topMenu.display}}" class="top-menu"  ng-mouseleave="topMenu.display = 'none'">
+	  	<div class="topmenu-blurb">
+	  		<h3>How can we help you?</h3>
+	  		<p>In what capacity are you interested in the Western Cape? Click on the relevant link on the right hand side to get content tailor made for your purposes!</p>
+	  	</div>
+	  	<div class="topmenu-divider"></div>
+	  	<ul>
+	  		<li ng-click="topMenuSelected(item)" ng-repeat="item in dataToObjArray(metadata.Menu)"><i class="{{item.meta.icon}}"></i><a>{{item.meta.label}}</a></li>
+	  	</ul>
+	  </div>
+	  <!--
+	  <div class="logo-container"><h2>Western Cape Tourism</h2></div>
+	    -->
+	  <div class="view-content" ng-view></div>
+	  <div class="nav bottom-menu">
+		  <nav class="clearfix">
+			<ul class="clearfix">
+				<li ng-mouseover="showTopMenu('services')"><i class="glyphicon glyphicon-plus-sign"></i><a href="#home">Our Services</a></li>
+				<li ng-repeat="item in dataToObjArray(subMenu)"><i class="{{item.meta.icon}}"></i><a href="#{{item.meta.page}}">{{item.meta.label}}</a></li>
+				
+				<!-- 
+				<li><i class="glyphicon glyphicon-bullhorn"></i><a href="#engage">Events</a></li>
+				<li><i class="glyphicon glyphicon-pushpin"></i><a href="#engage">Interactive Map</a></li>
+				<li><i class="glyphicon glyphicon-user"></i><a href="#engage">My Western Cape</a></li>
+				 -->
+			</ul>
+			<a href="#" id="pull">+Menu</a>
+		</nav>
+	  </div>
+	</div>
+	<div id="modalContent" class="modal fade">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header" style="height:60px">
+	        <span class="modal-title label-dark" id="modalContentHeader" style="font-size:16px"></span>
+	        <button type="button" class="btn btn-default" onclick='cancelModalContent()' style="float:right;margin-left:5px;">Cancel</button>
+	        <button id="btnSave" type="button" class="btn btn-success" onclick='saveModalContent()' style="float:right;">Save</button>
+	        <br>
+	      </div>
+	      <div class="modal-body">
+	     
+	      </div>
+	    </div><!-- /.modal-content -->
+	  </div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+	
+	<!-- /.scripts -->
+    <script src="lib/jquery-1.9.1.js"></script>
+	<script src="lib/jquery-ui.js"></script>
+	<script src="lib/bootstrap.min.js"></script>
+	<script src="lib/ace/ace.js"></script>
+	
+ 	
+    <script src="lib/angular/angular.js"></script>
+    <script src="lib/angular/ui-bootstrap-tpls-0.9.0.js"></script>
+    <script src="lib/angular/angular-animate.js"></script>
+    <script src="lib/angular/angular-route.js"></script>
+    <script src='https://cdn.firebase.com/v0/firebase.js'></script>
+	<script src='https://cdn.firebase.com/libs/angularfire/0.3.0/angularfire.min.js'></script>
+	
+	<script src="js/app.js"></script>
+	
+	<script src="js/controllers/project-controllers.js"></script>
+	<script src="js/controllers/operation-controllers.js"></script>
+	<script src="js/controllers/control-controllers.js"></script>
+    <script src="js/controllers/system-controllers.js"></script>
+    <script src="js/controllers/type-controllers.js"></script>
+    <script src="js/filters/system-filters.js"></script>
+    <script src="js/services/system-services.js"></script>
+    <script src="js/directives/treeview.js"></script>
+    <script src="js/directives/ui-ace.js"></script>
+    <script src="js/directives/ui-sortable.js"></script>
+     <script src="js/directives/system-directives.js"></script>
+    <script src="lib/base64.js"></script>
+    
+     <script>
+	  $( document ).ready(function() {
+		 
+	  });
+	  </script>
+  </body>
+  
+</html>

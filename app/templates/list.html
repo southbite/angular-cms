@@ -1,0 +1,17 @@
+<div class='page-content list-page' ng-controller="ListController">
+	<div class='list-page'>
+		<div class='list-criteria' compile-html="page.criteria">
+		
+		</div>
+		<div class='list-content'>
+			<div class='list-content-html' compile-html="selectedContent" >
+			
+			</div>
+		</div>
+		<div class='list-results'>
+			<ul>
+				<li ng-click="selectContent(item)" ng-repeat="item in dataToObjArray(page.results)"><h4>{{item.header}}</h4><span class="list-item-caption">{{item.caption}}</span></li>
+			</ul>
+		</div>
+	</div>
+</div>

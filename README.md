@@ -1,4 +1,4 @@
-fire-grate
-==========
+angular-cms
+===========
 
-Asynchronous javascript integration platform 
+CMS system based on Firebase and Angular

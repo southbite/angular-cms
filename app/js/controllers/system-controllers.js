@@ -70,12 +70,16 @@ cmsControllers.controller('BaseController', ['$scope', '$rootScope', '$modal', '
 		        },
 		        systemServices:function () {
 		          return systemServices;
-		        }
+		        },
+		        handler: function () {
+			          return handler;
+			    }
 		      }
 		    });
 
       if (handler)
     	  modalInstance.result.then(handler.saved, handler.dismissed);
+      
 	 };
 		  
 	 $scope.openNewModal = function (type, action) {
@@ -214,12 +218,13 @@ cmsControllers.controller('FeaturedListController', ['$scope', '$rootScope', '$m
 }]);
 
 
-
 cmsControllers.controller('ContentController', ['$scope', '$rootScope', '$modal', '$log',  'dataService', 'AppSession', function($scope, $rootScope, $modal, $log,  dataService, AppSession) {
 
 	  $scope.action_selected = function(action){
 		  action.handler();
 	  };
+	  
+	  $scope.testObj = {name:'test', method:function(test){}};
 	  
 	  $scope.$on('editItemSelected', function(event, args) {
 		  $scope.flashmessage.display = 'none';
@@ -253,12 +258,20 @@ cmsControllers.controller('ContentController', ['$scope', '$rootScope', '$modal'
 	  $scope.$on('editor_loaded', function(event, args) {
 		  
 		  $scope.actions = [];
+		  $scope.methods = [];
+		  
 		  $scope.actions_display = "none";
+		  $scope.contentScope = event.targetScope;
 		 
 		  if (event.targetScope.actions != null && event.targetScope.actions.length > 0)
 		  {
 			  $scope.actions = event.targetScope.actions;
 			  $scope.actions_display = "inline";
+		  }
+		  
+		  if (event.targetScope.methods != null)
+		  {
+			  $scope.methods = event.targetScope.methods;
 		  }
 	  });
 	  

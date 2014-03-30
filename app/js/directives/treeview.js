@@ -2,7 +2,6 @@ var module;
 
 module = angular.module('angularBootstrapNavTree', []);
 module.directive('abnTree', function($timeout) {
-	console.log('my tree called!!!');
   return {
     restrict: 'E',
     templateUrl: '../templates/abn_tree_template.html',

@@ -13,7 +13,8 @@ var cmsApp = angular.module('cmsApp', [
   'angularBootstrapNavTree',
   'ui.ace',
   'ui.sortable',
-  'ngRoute'
+  'ngRoute',
+  'localytics.directives'
 ]);
 
 cmsApp.config(['$routeProvider',

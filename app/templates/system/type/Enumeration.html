@@ -1,0 +1,13 @@
+ <div class="form-group">
+   <label for="fieldRequired" class="col-sm-2 control-label">Multi Select</label>
+   <div class="col-sm-10">
+    <input type="checkbox" style="margin-top:10px" ng-model="contentScope.selectedFieldItem.parameters.enumerationmultiselect"> 
+   </div>
+ </div>
+ <div class="form-group">
+   <label class="col-sm-2 control-label">Fields</label>
+    <i style='cursor:pointer;margin-left:5px' class='glyphicon glyphicon-plus' ng-click='contentScope.newEnumerationField()'></i>
+    <ul class="col-sm-4 enumeration-fields-list">
+    	<li class="enumeration-fields-item" ng-repeat="field in contentScope.selectedFieldItem.parameters.enumerationfields">{{field.label}}<i class='enumeration-fields-item-controls glyphicon glyphicon-remove' ng-click='contentScope.deleteEnumerationField(field)'></i><i class='enumeration-fields-item-controls  glyphicon glyphicon-chevron-up' ng-click='contentScope.moveEnumerationField("up", field)'></i><i class='enumeration-fields-item-controls glyphicon glyphicon-chevron-down' ng-click='contentScope.moveEnumerationField("up", field)'></i></li>
+    </ul>
+ </div>
